@@ -1,0 +1,2329 @@
+import java.util.Scanner;
+
+public class ProgramaOrdenarNumeros {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Ingrese el numero 1: ");
+        int num1 = scanner.nextInt();
+
+        System.out.println("Ingrese el numero 2: ");
+        int num2 = scanner.nextInt();
+
+        String resultado = (num1 > num2) ? num1 + " y " + num2 : num2 + " y " + num1;
+
+        System.out.println("El orden es: " + resultado);
+
+    }
+}
+
+
+
+
+
+
+
+
+
+import java.util.Scanner;
+
+public class EstanqueGasolina {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        double capacidadActual; // la capacidad a ingresar
+
+        System.out.println("Introduzca la capacidad actual del estanque (máx 70 litros): ");
+        capacidadActual = scanner.nextDouble();
+
+        if (capacidadActual >= 0 && capacidadActual < 20) {
+            System.out.println("Insuficiente");
+        } else if (capacidadActual >= 20 && capacidadActual < 35) {
+            System.out.println("Suficiente");
+        } else if (capacidadActual >= 35 && capacidadActual < 40) {
+            System.out.println("Medio Estanque");
+        } else if (capacidadActual >= 40 && capacidadActual < 60) {
+            System.out.println("Estanque  3/4");
+        } else if (capacidadActual >= 60 && capacidadActual < 70) {
+            System.out.println("Estanque casi lleno");
+        } else if (capacidadActual == 70) {
+            System.out.println("Estanque lleno");
+        }
+    }
+}
+
+
+
+
+import javax.swing.JOptionPane;
+
+public class ProgramaNombreMasLargo {
+    public static void main(String[] args) {
+        String persona1 = JOptionPane.showInputDialog("Ingresa el nombre y apellido de un familiar o amigo:");
+        String persona2 = JOptionPane.showInputDialog("Ingresa el nombre y apellido de un familiar o amigo:");
+        String persona3 = JOptionPane.showInputDialog("Ingresa el nombre y apellido de un familiar o amigo:");
+
+        String max = (persona1.split(" ")[0].length() < persona2.split(" ")[0].length()) ? persona2 : persona1;
+        max = (persona3.split(" ")[0].length() < max.split(" ")[0].length()) ? max: persona3;
+        
+        System.out.println("La persona con el nombre mas largo es " + max);
+    }
+}
+
+
+
+import java.util.Scanner;
+
+public class ProgramaManejoDeNombres {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Ingrese un nombre de un familiar:");
+        String nombreA = scanner.nextLine();
+        String nombreA2 = nombreA.toUpperCase().charAt(1) + "." + nombreA.substring(nombreA.length()-2);
+                
+        System.out.println("Ingrese otro nombre de un familiar:");
+        String nombreB = scanner.nextLine();
+        String nombreB2 = nombreB.toUpperCase().charAt(1) + "." + nombreB.substring(nombreB.length()-2);
+                
+        System.out.println("Ingrese otro nombre de un familiar:");
+        String nombreC = scanner.nextLine();
+        String nombreC2 = nombreC.toUpperCase().charAt(1) + "." + nombreC.substring(nombreC.length()-2);
+        
+        String resultado = nombreA2 + "_" + nombreB2 + "_" + nombreC2;
+
+        System.out.println(resultado);
+    }
+}
+
+
+
+
+
+import java.util.Scanner;
+
+public class DetalleDeFactura {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Ingrese un nombre para la factura:");
+        String nombre = scanner.nextLine();
+        
+        System.out.println("Ingrese un precio de producto:");
+        double precio1 = scanner.nextDouble();
+        
+        System.out.println("Ingrese un segundo precio de producto:");
+        double precio2 = scanner.nextDouble();
+
+        double totalBruto = precio1 + precio2;
+        double impuesto = totalBruto * 0.19;
+        double totalNeto = totalBruto + impuesto;
+
+        String detalle = "La factura " + nombre + " tiene un total bruto de " + totalBruto 
+                + ", con un impuesto de " + impuesto 
+                + " y el monto despues de impuesto es de " + totalNeto;
+        
+        System.out.println(detalle);
+    }
+}
+
+
+public class HolaMiNombreEs {
+
+    public static void main(String[] args) {
+
+        String nombre = "Andres";
+
+        System.out.println("Hola, mi nombre es " + nombre);
+
+    }
+
+
+
+}
+
+
+
+
+
+import java.util.Scanner;
+
+public class ProgramaNumeroMenor {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("Ingrese la cantidad de números a comparar: ");
+        int cantidad = scanner.nextInt();
+
+        // preguntamos si es menor a 10, ya que el mínimo según la letra de la tarea es 10 (buscar el número menor de minimo 10 valores enteros). 
+        if (cantidad < 10) {
+            System.out.println("Error: Debe comparar al menos 10 números enteros!");
+        } else {
+            int menor = Integer.MAX_VALUE; // asignamos un valor máximo por defecto como numero menor para comenzar
+            int numero;
+
+            for (int i = 0; i < cantidad; i++) {
+                System.out.println("Ingrese el numero " + (i + 1) + ": ");
+                numero = scanner.nextInt();
+                menor = (numero < menor) ? numero : menor;
+            }
+
+            System.out.println("El número menor es: " + menor);
+            
+            if (menor < 10) {
+                System.out.println("El número " + menor + " es menor que 10!");
+            } else {
+                System.out.println("El número " + menor + " es igual o mayor que 10!");
+            }
+        }
+    }
+}
+
+
+
+import java.util.Scanner;
+
+public class PromedioNotasAlumnos {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        double nota; // la nota a ingresar
+        int contNotas1 = 0; // el contador de notas 1
+        int contNotasMayoresA5 = 0; // contador de notas mayores a 5
+        int contNotasMenoresA4 = 0; // contador de notas menores a 4
+        double sumaNotasMayoresA5 = 0; // suma de notas mayores a 5
+        double sumaNotasMenoresA4 = 0; // suma de notas menores a 4
+        double sumaTotal = 0; // suma total de notas
+
+        double promedioNotasMayoresA5, promedioNotasMenoresA4; // los promedios de notas mayores a 5 y menores a 4
+
+        boolean error = false;
+
+        for (int i = 0; i < 20; i++) {
+            System.out.println("Introduce una nota (entre 1 y 7) N" + (i + 1) + ": ");
+            nota = scanner.nextDouble();
+
+            if (nota == 0) {
+                error = true;
+                break;
+            }
+
+            if (nota == 1) {
+                contNotas1++;
+            } else {
+                if (nota > 5) {
+                    contNotasMayoresA5++;
+                    sumaNotasMayoresA5 += nota;
+                } else if (nota < 4) {
+                    contNotasMenoresA4++;
+                    sumaNotasMenoresA4 += nota;
+                }
+            }
+            sumaTotal += nota;
+        }
+        if (error) {
+            System.err.println("Error: No pueden haber notas con valor 0, ha finalizado la ejecución del programa.");
+            System.exit(1);
+        }
+        // mostramos la cantidad de notas 1
+        System.out.println("El número de notas 1 es de: " + contNotas1);
+        //trabajamos con las notas superiores a 5
+        if (contNotasMayoresA5 == 0) {
+            System.out.println("No se puede calcular el promedio de notas sobre 5");
+        } else {
+            promedioNotasMayoresA5 = sumaNotasMayoresA5 / contNotasMayoresA5;
+            System.out.println("Promedio de notas mayores a 5: " + promedioNotasMayoresA5);
+        }
+
+        // trabajamos con las notas inferiores a 4
+        if (contNotasMenoresA4 == 0) {
+            System.out.println("No se puede calcular el promedio de notas bajo 4");
+        } else {
+            promedioNotasMenoresA4 = sumaNotasMenoresA4 / contNotasMenoresA4;
+            System.out.println("Promedio de notas menores a 3: " + promedioNotasMenoresA4);
+        }
+
+        // promedio total de las notas
+        double promedioTotalNotas = sumaTotal / 20;
+        System.out.println("Promedio total de notas: " + promedioTotalNotas);
+    }
+}
+
+
+
+import java.util.Scanner;
+
+public class MultiplicarSinSimbolo {
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Ingrese el numero a: ");
+        int a = scanner.nextInt();
+        
+        System.out.println("Ingrese el numero b: ");
+        int b = scanner.nextInt();
+        int resultado = 0;
+        
+        // verificamos los signos de cada uno, si es positivo o negativo
+        boolean positivoB = b > -1;
+        boolean positivoA = a > -1;
+        
+        // calculamos el valor absoluto de a
+        int absolutoA = positivoA? a: -a; // equivalente a Math.abs(a);
+        
+        // sumamos tantas veces el valor de b, segun el valor de a.
+        for(int i = 0; i < absolutoA; i++){
+            resultado = resultado + b;    
+        }
+        
+        // si ambos son negativos o si solo a es negativo damos vuelta el signo
+        if((!positivoA && !positivoB) || !positivoA){
+            resultado = -resultado;
+        }
+
+        System.out.println("el resultado es " + resultado);
+    }
+}
+
+
+
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.JOptionPane;
+
+public class ProgramaMenuOpcionesIterativo {
+
+    public static void main(String[] args) {
+        int opcionIndice = 0;
+        do {
+
+            // los Map (o mapas) los veremos mas adelante en el curso en profundidad
+            // pero son como un arreglo asociativo, asocia un nombre (o indice) a un valor
+            // también se les conoce como diccionarios para almacenar datos en base a un nombre.
+            Map<String, Integer> opciones = new HashMap<>();
+            opciones.put("Actualizar", 1);
+            opciones.put("Eliminar", 2);
+            opciones.put("Agregar", 3);
+            opciones.put("Listar", 4);
+            opciones.put("Salir", 5);
+
+            Object[] opArreglo = opciones.keySet().toArray();
+            Object opcion = JOptionPane.showInputDialog(null,
+                    "Seleccione un Operación", "Mantenedor de Usuario", JOptionPane.INFORMATION_MESSAGE, null, opArreglo, opArreglo[0]);
+
+            if (opcion == null) {
+                JOptionPane.showMessageDialog(null, "Debe seleccionar una operación");
+            } else {
+                opcionIndice = opciones.get(opcion.toString());
+
+                String mensaje = null;
+
+                switch (opcionIndice) {
+                    case 1 -> {
+                        mensaje = "Usuario actualizado correctamente";
+                        JOptionPane.showMessageDialog(null, mensaje);
+                        System.out.println(mensaje);
+                    }
+                    case 2 -> {
+                        mensaje = "Usuario eliminado correctamente";
+                        JOptionPane.showMessageDialog(null, mensaje);
+                        System.out.println(mensaje);
+                    }
+                    case 3 -> {
+                        mensaje = "Usuario agregado correctamente";
+                        JOptionPane.showMessageDialog(null, mensaje);
+                        System.out.println(mensaje);
+                    }
+                    case 4 -> {
+                        mensaje = "Listando a los usuarios";
+                        JOptionPane.showMessageDialog(null, mensaje);
+                        System.out.println(mensaje);
+                    }
+                }
+            }
+
+        } while (opcionIndice != 5);
+
+        JOptionPane.showMessageDialog(null, "Haz salido con exito!");
+    }
+}
+
+
+
+public class ProgramaCalculoEdad {
+
+    public static void main(String[] args) throws ParseException {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Ingrese un fecha de nacimiento con formato yyyy-MM-dd:");
+        String fechaStr = scanner.next();
+
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        Date fechaNacimiento = df.parse(fechaStr);
+        Date actual = new Date();
+
+        // creamos un patron de fecha numérico con el año mes y día
+        df = new SimpleDateFormat("yyyyMMdd");
+
+        // luego convertimos ambas fechas la actual y la fecha de nacimiento
+        // en enteros que contiene el año mes y día
+        int desde = Integer.parseInt(df.format(fechaNacimiento));
+        int hasta = Integer.parseInt(df.format(actual));
+        
+        // luego restamos ambas fechas y dividimos en 10000 para quitar decimales y 
+        // dejar la fecha en decenas o centenas
+        int edad = (hasta - desde) / 10000;
+        System.out.println("La edad es: " + edad);
+    }
+}
+
+
+import java.util.Scanner;
+
+public class AreaCirculo {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        double area; // el área a calcular
+
+        double radio; // radio a ingresar
+        System.out.println("Introduce el radio de un circulo: ");
+        radio = scanner.nextDouble();
+        area = Math.PI * Math.pow(radio, 2);
+
+        System.out.println("El área de una circunferencia de radio " + radio + " es: " + area);
+    }
+}
+
+
+import java.util.Scanner;
+
+public class ProgramaOrdenarArreglo {
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+        int i, arreglo[];
+        arreglo = new int[10];
+        for (i = 0; i < 10; i++) {
+            System.out.println("Ingrese un numero: ");
+            arreglo[i] = scanner.nextInt();
+        }
+
+        // como en cada iteración del for se muestran dos números
+        // solo necesitaremos recorrer la mitad de iteraciones, con eso es suficiente.
+        System.out.println("El resultado es:");
+        for (i = 0; i <= 4; i++) {
+            System.out.println(arreglo[9 - i]); // y el i-ésimo por el final
+            System.out.println(arreglo[i]); // mostramos el i-ésimo número por el principio
+        }
+    }
+}
+
+
+import java.util.Scanner;
+
+public class ProgramaImprimirMasAlto {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int[] arreglo = new int[10];
+
+        // ingreamos los datos por ejemplo {14, 33, 15, 36, 78, 21, 43}
+        for (int i = 0; i < 7; i++) {
+            System.out.println("Ingrese un numero de 11 a 99: ");
+            arreglo[i] = scanner.nextInt();
+        }
+
+        int max = 0;
+
+        // luego obtenemos el valor mayor
+        for (int i = 0; i < 7; i++) {
+            max = (max > arreglo[i])? max: arreglo[i];
+        }
+        System.out.println("El valor mas alto es: " + max);
+    }
+}
+
+
+
+import java.util.Scanner;
+
+public class SistemaEstadisticoArreglo {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int sumaPos, contPos, sumaNeg, contNeg, contCero, i, arreglo[];
+
+        arreglo = new int[7];
+        sumaPos = 0;
+        contPos = 0;
+        sumaNeg = 0;
+        contNeg = 0;
+        contCero = 0;
+
+        // utilizamos un for para leer los datos del teclado y llenar el arreglo
+        for (i = 0; i < 7; i++) {
+            System.out.println("Ingrese un numero: ");
+            arreglo[i] = scanner.nextInt();
+        }
+
+        // utilizamos otro for para realizar los cálculos de contador y sumas
+        for (i = 0; i < arreglo.length; i++) {
+            if (arreglo[i] == 0) {
+                contCero++;
+            } else {
+                if (arreglo[i] > 0) {
+                    sumaPos = sumaPos + arreglo[i];
+                    contPos++;
+                } else {
+                    sumaNeg = sumaNeg + arreglo[i];
+                    contNeg++;
+                }
+            }
+        }
+
+        if (contPos == 0) {
+            System.out.println("No se pudo calcular el promedio de números positivos");
+        } else {
+            System.out.println("El promedio de los positivos: " + (float) sumaPos / contPos);
+        }
+
+        if (contNeg == 0) {
+            System.out.println("No se pudo realizar el promedio de números negativos");
+        } else {
+            System.out.println("El promedio de los negativos: " + (float) sumaNeg / contNeg);
+        }
+
+        System.out.println("La cantidad de cero es de: " + contCero);
+
+    }
+}
+
+
+import java.util.Scanner;
+
+public class ProgramaImprimirMasOcurrencias {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int[] arreglo = new int[10];
+
+        // ingreamos los datos por ejemplo {1, 2, 3, 3, 4, 5, 5, 5, 6, 7}
+        for (int i = 0; i < 10; i++) {
+            System.out.println("Ingrese un numero de 1 a 9: ");
+            arreglo[i] = scanner.nextInt();
+        }
+
+        // creamos un segundo arreglo llamado arregloCantidadValores (de igual largo)
+        // para guardar las cantidades de veces que se repite cada elemento 
+        // del arreglo principal
+        int[] arregloCantidadValores = new int[10];
+
+        // luego llenamos este segundo arreglo con las cantidades de ocurrencia
+        // de los elementos del primer arreglo
+        for (int i = 0; i < arreglo.length; i++) {
+            int cantidad = 0;
+            for (int j = 0; j < arreglo.length; j++) {
+                if (arreglo[i] == arreglo[j]) {
+                    cantidad++;
+                }
+            }
+            arregloCantidadValores[i] = cantidad;
+        }
+
+        // luego obtenemos el valor de la mayor ocurrencia (mas veces repetido)
+        // y el indice o pocicion para obtener el numero mas repetido
+        int indice = 0; // indice del elemento con la mayor ocurrencia (mas repetido)
+        int max = 0; // la cantidad mayor de veces (la mayor ocurrencia)
+        for (int i = 0; i < 10; i++) {
+            if (max < arregloCantidadValores[i]) {
+                max = arregloCantidadValores[i];
+                indice = i;
+            }
+        }
+        System.out.println("La mayor ocurrencia es: " + max);
+        System.out.println("El elemento que mas se repite es: " + arreglo[indice]);
+        System.out.println("el elemento " + arreglo[indice] + " esta repetido " + max + "veces!");
+    }
+}
+
+
+import java.util.Scanner;
+
+public class ProgramaImprimirHistograma {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int[] arreglo = new int[12];
+
+        // ingreamos los datos por ejemplo {4, 3, 4, 6, 6, 4, 1, 4, 5, 4, 1, 1}
+        for (int i = 0; i < arreglo.length; i++) {
+            System.out.println("Ingrese un numero de 1 a 6: ");
+            arreglo[i] = scanner.nextInt();
+        }
+        // Creamos un segundo arreglo llamado arregloHistograma del tipo String y de largo 6.
+        // Por cada numero del 1 al 6 contiene su Histograma con la representacion
+        // grafica de las veces que se repite cada numero en el arreglo principal.
+        String[] arregloHistograma = new String[6];
+
+        // luego llenamos este segundo arreglo con el Histograma
+        for (int i = 0; i < arregloHistograma.length; i++) {
+            int aux = i + 1;
+            String histograma = aux + ": ";
+            for (int j = 0; j < arreglo.length; j++) {
+                if (aux == arreglo[j]) {
+                    histograma += "*";
+                }
+            }
+            arregloHistograma[i] = histograma;
+        }
+
+        // finalmente mostramos el Histograma
+        for (int i = 0; i < arregloHistograma.length; i++) {
+            System.out.println(arregloHistograma[i]);
+        }
+
+    }
+}
+
+import java.util.Scanner;
+
+public class ProgramaImprimirX {
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Ingrese el tamaño de la matriz (n x n): ");
+        int n = scanner.nextInt();
+        
+        if (n == 0) {
+            System.out.println("ERROR");
+            System.exit(1);
+        }
+        
+        for (int i = 0; i < n; i++) { 
+            for (int j = 0; j < n; j++) {
+                
+                if (i == j || (j == n - i - 1)) {
+                    System.out.print("X");
+                } else {
+                    System.out.print("_");
+                }
+            }
+            System.out.println();
+        }
+    }
+    
+}
+
+import java.util.Scanner;
+
+public class ProgramaImprimirSilla {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Ingrese el tamaño de la matriz (n x n): ");
+        int n = scanner.nextInt();
+        int[][] matriz = new int[n][n];
+
+        if (n == 0) {
+            System.out.println("ERROR");
+            System.exit(1);
+        }
+
+        // llenamos la matriz de n x n con la figura de una silla en base al 
+        // numero 1
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+
+                if ((j == 0) || (i == n / 2 && j != 0 && j != n - 1) || (j == n - 1 && i >= n / 2)) {
+                    matriz[i][j] = 1;
+                } else {
+                    matriz[i][j] = 0;
+                }
+            }
+
+        }
+
+        // recorremos e mostramos los elementos de la matriz para imprimir la 
+        // figura de una silla
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(matriz[i][j]);
+            }
+            System.out.println();
+        }
+    }
+
+}
+
+
+public class Cliente {
+    private String nombre;
+    private String apellido;
+
+    public Cliente(String nombre, String apellido) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    @Override
+    public String toString() {
+        return nombre + " " + apellido;
+    }
+ 
+}
+
+public class Producto {
+    
+    private String fabricante;
+    private String nombre;
+    private int precio;
+
+    public Producto(String fabricante, String nombre, int precio) {
+        this.fabricante = fabricante;
+        this.nombre = nombre;
+        this.precio = precio;
+    }
+
+    public String getFabricante() {
+        return fabricante;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getPrecio() {
+        return precio;
+    }
+  
+}
+
+import java.util.Date;
+
+public class OrdenCompra {
+
+    private int identificador;
+    private String descripcion;
+    private Date fecha;
+    private Cliente cliente;
+    private Producto[] productos;
+
+    private static int ultimoId;
+    private int indiceProductos;
+
+    public OrdenCompra(String descripcion) {
+        this.descripcion = descripcion;
+        this.identificador = ++ultimoId;
+        this.productos = new Producto[4];
+    }
+
+    public int getIdentificador() {
+        return identificador;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Producto[] getProductos() {
+        return productos;
+    }
+
+    public void addProducto(Producto producto) {
+        if (indiceProductos < this.productos.length) {
+            this.productos[indiceProductos++] = producto;
+        }
+    }
+    
+    public int getGranTotal(){
+        int total = 0;
+        for(Producto p: productos){
+            total += p.getPrecio();
+        }
+        return total;
+    }
+
+}
+La clase EjemploOrdenes:
+
+import java.util.Date;
+
+public class EjemploOrdenes {
+    public static void main(String[] args) {
+        
+        OrdenCompra orden1 = new OrdenCompra("Compras componentes pc");
+        orden1.setCliente(new Cliente("Andres", "Guzman"));
+        orden1.setFecha(new Date());
+
+        orden1.addProducto(new Producto("Western Digital", "Unidad SSD 480GB", 54890));
+        orden1.addProducto(new Producto("MSI", "Monitor Optix G271", 363940));
+        orden1.addProducto(new Producto("AMD", "Procesador AMD Ryzen 9 5900X", 599990));
+        orden1.addProducto(new Producto("EVGA", "Tarjeta de video EVGA RTX 3080Ti", 1849990));
+
+        OrdenCompra orden2 = new OrdenCompra("Compras Electrodomésticos");
+        orden2.setCliente(new Cliente("John", "Doe"));
+        orden2.setFecha(new Date());
+        orden2.addProducto(new Producto("Fensa", "Cocina", 239990));
+        orden2.addProducto(new Producto("Samsung", "Refrigerador", 429990));
+        orden2.addProducto(new Producto("Midea", "Lavadora", 149990));
+        orden2.addProducto(new Producto("Aspiradora", "IRobot", 199990));
+
+        OrdenCompra orden3 = new OrdenCompra("Compras materiales de construcción");
+        orden3.setCliente(new Cliente("Pepa", "Roe"));
+        orden3.setFecha(new Date());
+        orden3.addProducto(new Producto("Melon", "Cemento 25kg", 4870));
+        orden3.addProducto(new Producto("Grau", "Hormigon", 6040));
+        orden3.addProducto(new Producto("Ceramicas Santiago", "Ladrillo", 790));
+        orden3.addProducto(new Producto("Redline", "Escala articulada aluminio", 48990));
+        
+        OrdenCompra[] ordenes = {orden1, orden2, orden3};
+
+        for (OrdenCompra orden : ordenes) {
+            System.out.println("Folio: " + orden.getIdentificador());
+            System.out.println("Cliente: " + orden.getCliente());
+            System.out.println("Descripcion: " + orden.getDescripcion());
+            System.out.println("Fecha: " + orden.getFecha());
+            System.out.println("Total: " + orden.getGranTotal());
+
+            int i = 1;
+            for (Producto p : orden.getProductos()) {
+                System.out.println("Producto " + i + ": " + p.getNombre() + " " + p.getFabricante() + " precio $" + p.getPrecio());
+                i++;
+            }
+            System.out.println("---------------------------------- siguiente --------------------------------------");
+        }
+    }
+ 
+}
+
+
+package org.aguzman.herencia.personacompania.dominio;
+
+public class Persona {
+
+    private String numeroFiscal;
+    private String nombre;
+    private String apellido;
+    private String direccion;
+
+    public Persona(String numeroFiscal, String nombre, String apellido, String direccion) {
+        this.numeroFiscal = numeroFiscal;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.direccion = direccion;
+    }
+
+    public String getNumeroFiscal() {
+        return numeroFiscal;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    @Override
+    public String toString() {
+        return "numeroFiscal=" + numeroFiscal + ", nombre=" + nombre + ", apellido=" + apellido + ", direccion=" + direccion;
+    }
+}
+
+
+Clase Cliente:
+
+package org.aguzman.herencia.personacompania.dominio;
+
+public class Cliente extends Persona {
+    private int clienteId;
+
+    public Cliente(int clienteId, String numeroFiscal, String nombre, String apellido, String direccion) {
+        super(numeroFiscal, nombre, apellido, direccion);
+        this.clienteId = clienteId;
+    }
+
+    public int getClienteId() {
+        return clienteId;
+    }
+
+    @Override
+    public String toString() {
+        return "clienteId=" + clienteId + ", " + super.toString();
+    }
+}
+
+
+Clase Empleado:
+
+package org.aguzman.herencia.personacompania.dominio;
+
+public class Empleado extends Persona {
+    private int empleadoId;
+    private double remuneracion;
+
+    public Empleado(int empleadoId, double remuneracion, String numeroFiscal, String nombre, String apellido, String direccion) {
+        super(numeroFiscal, nombre, apellido, direccion);
+        this.empleadoId = empleadoId;
+        this.remuneracion = remuneracion;
+    }
+
+    public int getEmpleadoId() {
+        return empleadoId;
+    }
+
+    public double getRemuneracion() {
+        return remuneracion;
+    }
+    
+    public void aumentarRemuneracion(int porcentaje){
+        this.remuneracion += remuneracion * porcentaje/100;
+    }
+
+    @Override
+    public String toString() {
+        return "empleadoId=" + empleadoId + ", remuneracion=" + remuneracion + ", " + super.toString();
+    }
+}
+
+
+Clase Gerente:
+
+package org.aguzman.herencia.personacompania.dominio;
+
+public class Gerente extends Empleado {
+    private double presupuesto;
+
+    public Gerente(double presupuesto, int empleadoId, double remuneracion, String numeroFiscal, String nombre, String apellido, String direccion) {
+        super(empleadoId, remuneracion, numeroFiscal, nombre, apellido, direccion);
+        this.presupuesto = presupuesto;
+    }
+
+    public double getPresupuesto() {
+        return presupuesto;
+    }
+
+    public void setPresupuesto(double presupuesto) {
+        this.presupuesto = presupuesto;
+    }
+
+    @Override
+    public String toString() {
+        return "presupuesto=" + presupuesto + ", " + super.toString();
+    }
+}
+
+
+Clase main:
+
+package org.aguzman.herencia.personacompania.dominio;
+
+public class EjemploPersonasCompania {
+
+    public static void main(String[] args) {
+        Gerente gerente = new Gerente(57000.00, 25, 2000.00, "12.345.678-9", "John", "Roe", "Agustinas 2233");
+        gerente.aumentarRemuneracion(15);
+        gerente.setPresupuesto(77000.00);
+        System.out.println(gerente);
+    }
+
+}
+
+
+
+
+
+
+
+package org.aguzman.herencia.almacenyverduleria.dominio;
+
+public class Producto {
+
+    protected String nombre;
+    protected double precio;
+
+    public Producto(String nombre, double precio) {
+        this.nombre = nombre;
+        this.precio = precio;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+}
+
+
+Clase Fruta:
+
+package org.aguzman.herencia.almacenyverduleria.dominio;
+
+public class Fruta extends Producto {
+
+    private double peso;
+    private String color;
+
+    public Fruta(double peso, String color, String nombre, double precio) {
+        super(nombre, precio);
+        this.peso = peso;
+        this.color = color;
+    }
+
+    public double getPeso() {
+        return peso;
+    }
+
+    public String getColor() {
+        return color;
+    }
+}
+
+
+Clase Limpieza:
+
+package org.aguzman.herencia.almacenyverduleria.dominio;
+
+public class Limpieza extends Producto {
+
+    private String componentes;
+    private double litros;
+
+    public Limpieza(String componentes, double litros, String nombre, double precio) {
+        super(nombre, precio);
+        this.componentes = componentes;
+        this.litros = litros;
+    }
+
+    public String getComponentes() {
+        return componentes;
+    }
+
+    public double getLitros() {
+        return litros;
+    }
+}
+
+
+Clase Lacteo:
+
+package org.aguzman.herencia.almacenyverduleria.dominio;
+
+public class Lacteo extends Producto {
+
+    private int cantidad;
+    private int proteinas;
+
+    public Lacteo(int cantidad, int proteinas, String nombre, double precio) {
+        super(nombre, precio);
+        this.cantidad = cantidad;
+        this.proteinas = proteinas;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public int getProteinas() {
+        return proteinas;
+    }
+}
+
+
+Clase NoPerecible:
+
+package org.aguzman.herencia.almacenyverduleria.dominio;
+
+public class NoPerecible extends Producto {
+
+    private int contenido;
+    private int calorias;
+
+    public NoPerecible(int contenido, int calorias, String nombre, double precio) {
+        super(nombre, precio);
+        this.contenido = contenido;
+        this.calorias = calorias;
+    }
+
+    public int getContenido() {
+        return contenido;
+    }
+
+    public int getCalorias() {
+        return calorias;
+    }
+}
+
+
+Clase main:
+
+package org.aguzman.herencia.almacenyverduleria;
+
+import org.aguzman.herencia.almacenyverduleria.dominio.*;
+
+public class TareaAlmacenyVerduleria {
+
+    public static void main(String[] args) {
+
+        Producto[] productos = new Producto[8];
+        productos[0] = new Fruta(1200.00, "roja", "manzana fuji", 2500d);
+        productos[1] = new Fruta(1000.00, "verdes", "ubas", 3500d);
+        productos[2] = new Limpieza("lavaloza", 1.2, "Quix", 2290);
+        productos[3] = new Limpieza("Desinfectante Lavanda", 0.9, "Lysol", 1330);
+        productos[4] = new Lacteo(1000, 32, "Leche Sabor Chocolate Semidescremada", 1150);
+        productos[5] = new Lacteo(1000, 37, "Yoghurt Batido Sabor Frutilla Bolsa", 1190);
+        productos[6] = new NoPerecible(170, 95, "Atún Lomitos en Agua Angelmo", 960);
+        productos[7] = new NoPerecible(1000, 3536, "Porotos Hallado Bolsa", 1990);
+
+        for (Producto prod : productos) {
+            System.out.println("-------------------------------- " + prod.getClass().getSimpleName() + "---------------------------------");
+            System.out.println("Nombre: " + prod.getNombre());
+            System.out.println("Precio: " + prod.getPrecio());
+
+            if (prod instanceof Fruta) {
+                System.out.println("Peso (gr): " + ((Fruta) prod).getPeso());
+                System.out.println("Color: " + ((Fruta) prod).getColor());
+            } else if (prod instanceof Limpieza) {
+                System.out.println("Componentes: " + ((Limpieza) prod).getComponentes());
+                System.out.println("Litros: " + ((Limpieza) prod).getLitros());
+            } else if (prod instanceof Lacteo) {
+                System.out.println("Cantidad (gr/cc): " + ((Lacteo) prod).getCantidad());
+                System.out.println("Proteinas (gr): " + ((Lacteo) prod).getProteinas());
+            } else if (prod instanceof NoPerecible) {
+                System.out.println("Calorias (kCal): " + ((NoPerecible) prod).getCalorias());
+                System.out.println("Contenido neto (gr): " + ((NoPerecible) prod).getContenido());
+            }
+        }
+    }
+}
+
+
+package org.aguzman.pooclasesabstractas.mamiferos;
+
+abstract public class Mamifero {
+
+    protected String habitat;
+    protected float altura;
+    protected float largo;
+    protected float peso;
+    protected String nombreCientifico;
+
+    public Mamifero(String habitat, float altura, float largo, float peso, String nombreCientifico) {
+        this.habitat = habitat;
+        this.altura = altura;
+        this.largo = largo;
+        this.peso = peso;
+        this.nombreCientifico = nombreCientifico;
+    }
+
+    public Mamifero(String habitat, float altura, float largo, float peso) {
+        this.habitat = habitat;
+        this.altura = altura;
+        this.largo = largo;
+        this.peso = peso;
+    }
+
+    public String getHabitat() {
+        return habitat;
+    }
+
+    public Mamifero() {
+    }
+
+    public float getAltura() {
+        return altura;
+    }
+
+    public float getLargo() {
+        return largo;
+    }
+
+    public String getNombreCientifico() {
+        return nombreCientifico;
+    }
+
+    public float getPeso() {
+        return peso;
+    }
+
+    abstract public String comer();
+    abstract public String dormir();
+    abstract public String correr();
+    abstract public String comunicarse();
+}
+
+
+La clase abstracta Canino:
+
+package org.aguzman.pooclasesabstractas.mamiferos;
+
+abstract public class Canino extends Mamifero{
+
+    protected String color;
+    protected float tamanoColmillos;
+
+    public Canino(float tamanoColmillos, String color, String habitat, float altura, float largo, float peso) {
+        super(habitat, altura, largo, peso);
+        this.color = color;
+        this.tamanoColmillos = tamanoColmillos;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public float getTamanoColmillos() {
+        return tamanoColmillos;
+    }
+}
+
+
+La clase abstracta Felino:
+
+package org.aguzman.pooclasesabstractas.mamiferos;
+
+abstract public class Felino extends Mamifero{
+
+    protected float tamanoGarras;
+    protected int velocidad;
+
+    public Felino(float tamanoGarras, int velocidad, String habitat, float altura, float largo, float peso) {
+        super(habitat, altura, largo, peso);
+        this.tamanoGarras = tamanoGarras;
+        this.velocidad = velocidad;
+    }
+
+    public float getTamanoGarras() {
+        return tamanoGarras;
+    }
+
+    public int getVelocidad() {
+        return velocidad;
+    }
+}
+
+
+La clase Leon:
+
+package org.aguzman.pooclasesabstractas.mamiferos;
+
+public class Leon extends Felino {
+
+    private int numManada;
+    private double potenciaRugidoDecibel;
+
+    public Leon(double potenciaRugidoDecibel, int numManada, float tamanoGarras, int velocidad, String habitat, float altura, float largo, float peso) {
+        super(tamanoGarras, velocidad, habitat, altura, largo, peso);
+        this.numManada = numManada;
+        this.potenciaRugidoDecibel = potenciaRugidoDecibel;
+    }
+
+    public int getNumManada() {
+        return numManada;
+    }
+
+    public double getPotenciaRugidoDecibel() {
+        return potenciaRugidoDecibel;
+    }
+
+    @Override
+    public String comer() {
+        return "El Leon caza junto a su grupo de " + numManada + " individuos en las llanuras africanas";
+    }
+
+    @Override
+    public String dormir() {
+         return "El Leon duerme en las estepas africanas";
+    }
+
+    @Override
+    public String correr() {
+        return "El Leon corre a " + velocidad + " km/hr";
+    }
+
+    @Override
+    public String comunicarse() {
+        return "El Leon ruge fuerte a " + potenciaRugidoDecibel + " decibeles";
+    }
+}
+
+
+La clase Tigre:
+
+package org.aguzman.pooclasesabstractas.mamiferos;
+
+public class Tigre extends Felino {
+    private String especieTigre;
+
+    public Tigre(String especieTigre, float tamanoGarras, int velocidad, String habitat, float altura, float largo, float peso) {
+        super(tamanoGarras, velocidad, habitat, altura, largo, peso);
+        this.especieTigre = especieTigre;
+    }
+
+    public String getEspecieTigre() {
+        return especieTigre;
+    }
+
+    @Override
+    public String comer() {
+        return "El Tigre " + especieTigre + " caza solitario en los manglares y bosques monzónicos de " + habitat;
+    }
+
+    @Override
+    public String dormir() {
+        return "El Tigre " + especieTigre + " duerme en la selvas de " + habitat;
+    }
+
+    @Override
+    public String correr() {
+        return "El Tigre " + especieTigre + " corre a " + velocidad + " km/hr";
+    }
+
+    @Override
+    public String comunicarse() {
+        return "El Ruge Tigre y agacha sus orejas";
+    }
+}
+
+
+La clase Guepardo:
+
+package org.aguzman.pooclasesabstractas.mamiferos;
+
+public class Guepardo extends Felino {
+
+    public Guepardo(float tamanoGarras, int velocidad, String habitat, float altura, float largo, float peso) {
+        super(tamanoGarras, velocidad, habitat, altura, largo, peso);
+    }
+
+    @Override
+    public String comer() {
+        return "El Guepardo caza junto a su grupo en las llanuras africanas, con un mordida mucho inferior a los demas felinos grandes.";
+    }
+
+    @Override
+    public String dormir() {
+        return "El Guepardo duerme en las estepas africanas";
+    }
+
+    @Override
+    public String correr() {
+        return "El Guepardo es el felino mas rapido del mundo, corre a " + velocidad + " km/hr";
+    }
+
+    @Override
+    public String comunicarse() {
+        return "El Guepardo ruge no tan fuerte como el Leon";
+    }
+}
+La clase Lobo:
+
+package org.aguzman.pooclasesabstractas.mamiferos;
+
+public class Lobo extends Canino {
+
+    private int numCamada;
+    private String especieLobo;
+
+    public Lobo(int numCamada, String especieLobo, float tamanoColmillos, String color, String habitat, float altura, float largo, float peso) {
+        super(tamanoColmillos, color, habitat, altura, largo, peso);
+        this.numCamada = numCamada;
+        this.especieLobo = especieLobo;
+    }
+
+    public String getEspecieLobo() {
+        return especieLobo;
+    }
+
+    public int getNumCamada() {
+        return numCamada;
+    }
+
+    @Override
+    public String comer() {
+        return "El Lobo " + especieLobo + " caza junto a su grupo de " + numCamada + " individuos en los bosques de " + habitat;
+    }
+
+    @Override
+    public String dormir() {
+        return "El Lobo " + color + " duerme en las cabernas de " + habitat;
+    }
+
+    @Override
+    public String correr() {
+        return "El Lobo " + especieLobo + " corre en las llanuras aledañas a los bosques de " + habitat;
+    }
+
+    @Override
+    public String comunicarse() {
+        return "El Lobo " + especieLobo + " " + color + " aulla en luna llena";
+    }
+}
+
+
+La clase Perro:
+
+public class Perro extends Canino {
+
+    private int fuerzaMordida;
+
+    public Perro(int potenciaMordida, float tamanoColmillos, String color, String habitat, float altura, float largo, float peso) {
+        super(tamanoColmillos, color, habitat, altura, largo, peso);
+        this.fuerzaMordida = potenciaMordida;
+    }
+
+    public int getFuerzaMordida() {
+        return fuerzaMordida;
+    }
+
+
+    @Override
+    public String comer() {
+        return "El perro africano caza en manada con una fuerte mordida de " + fuerzaMordida + " PSI, posee fuertes mandíbulas y grandes orejas redondeadas";
+    }
+
+    @Override
+    public String dormir() {
+        return "El perro africano duerme en la sabana africana";
+    }
+
+    @Override
+    public String correr() {
+        return "El perro africano corre en las llanuras aledañas a la sabana!";
+    }
+
+    @Override
+    public String comunicarse() {
+        return "Los perros ladran de noche durante cacerías nocturnas";
+    }
+}
+
+
+La clase Main:
+
+import org.aguzman.pooclasesabstractas.mamiferos.*;
+
+public class EjemploMamiferos {
+
+    public static void main(String[] args) {
+
+        Mamifero[] mamiferos = new Mamifero[6];
+
+        Mamifero leon = new Leon(120d, 5, 7.5f, 58, "Sur Africa", 120, 220, 190);
+        Mamifero tigre = new Tigre("Siberiano", 7.9f, 72, "Rusia", 130, 330, 300);
+        Mamifero lobo = new Lobo(9, "Ibérico", 2.5f, "Gris marrón y negro", "Europa", 80, 120, 70);
+        Mamifero perro = new Perro(317, 2.5f, "Tricolor de manchas negras, blancas y óxido", "Africa", 43, 92, 35);
+        Mamifero tigreBengala = new Tigre("Bengala", 7.9f, 72, "India e Indonesia", 110, 270, 220);
+        Mamifero guepardo = new Guepardo(4.9f, 130, "Africa", 94, 140, 72);
+
+        mamiferos[0] = leon;
+        mamiferos[1] = tigre;
+        mamiferos[2] = lobo;
+        mamiferos[3] = perro;
+        mamiferos[4] = tigreBengala;
+        mamiferos[5] = guepardo;
+
+        for (Mamifero animal : mamiferos) {
+
+            System.out.println(" =============== " + animal.getClass().getSimpleName() + " =============== ");
+            System.out.println("Habitat:" + animal.getHabitat());
+            System.out.println("Altura:" + animal.getAltura());
+            System.out.println("Largo:" + animal.getLargo());
+            System.out.println("Peso:" + animal.getPeso());
+
+            if (animal instanceof Canino) {
+                System.out.println("Clomillos:" + ((Canino) animal).getTamanoColmillos());
+                System.out.println("Color:" + ((Canino) animal).getColor());
+
+                if (animal instanceof Lobo) {
+                    System.out.println("Especie Lobo:" + ((Lobo) animal).getEspecieLobo());
+                    System.out.println("Número Integrantes:" + ((Lobo) animal).getNumCamada());
+                }
+                if (animal instanceof Perro) {
+                    System.out.println("Fuerza mordida kg:" + ((Perro) animal).getFuerzaMordida());
+                }
+            }
+
+            if (animal instanceof Felino) {
+                System.out.println("Tamaño Garras:" + ((Felino) animal).getTamanoGarras());
+                System.out.println("Velocidad:" + ((Felino) animal).getVelocidad());
+
+                if (animal instanceof Leon) {
+                    System.out.println("Potencia Rugido:" + ((Leon) animal).getPotenciaRugidoDecibel());
+                    System.out.println("Número Integrantes:" + ((Leon) animal).getNumManada());
+                }
+                if (animal instanceof Tigre) {
+                    System.out.println("especie Tigre:" + ((Tigre) animal).getEspecieTigre());
+                }
+            }
+
+            System.out.println(animal.comer());
+            System.out.println(animal.dormir());
+            System.out.println(animal.correr());
+            System.out.println(animal.comunicarse());
+        }
+    }
+}
+
+
+package org.aguzman.poointerface.dominio;
+
+public interface IProducto {
+    int getPrecio();
+    double getPrecioVenta();
+}
+
+
+La interface IElectronico:
+
+package org.aguzman.poointerface.dominio;
+
+public interface IElectronico {
+    String getFabricante();
+}
+
+
+La interface ILibro:
+
+package org.aguzman.poointerface.dominio;
+
+import java.util.Date;
+
+public interface ILibro {
+    Date getFechaPublicacion();
+    String getAutor();
+    String getTitulo();
+    String getEditorial();
+}
+
+
+La clase abstracta Producto:
+
+package org.aguzman.poointerface.dominio;
+
+public abstract class Producto implements IProducto{
+
+    private int precio;
+
+    public Producto(int precio) {
+        this.precio = precio;
+    }
+
+    @Override
+    public int getPrecio() {
+        return precio;
+    }
+}
+
+
+La clase abstracta Electronico:
+
+package org.aguzman.poointerface.dominio;
+
+abstract public class Electronico extends Producto implements IElectronico {
+
+    private String fabricante;
+
+    public Electronico(int precio, String fabricante) {
+        super(precio);
+        this.fabricante = fabricante;
+    }
+
+    @Override
+    public String getFabricante() {
+        return fabricante;
+    }
+}
+
+
+La clase IPhone:
+
+package org.aguzman.poointerface.dominio;
+
+public class IPhone extends Electronico {
+
+    private String modelo;
+    private String color;
+
+    public IPhone(int precio, String fabricante, String modelo, String color) {
+        super(precio, fabricante);
+        this.modelo = modelo;
+        this.color = color;
+    }
+
+    @Override
+    public double getPrecioVenta() {
+        return getPrecio() * 0.9;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public String getColor() {
+        return color;
+    }
+}
+
+
+La clase TvLcd:
+
+package org.aguzman.poointerface.dominio;
+
+public class TvLcd extends Electronico {
+
+    private int pulgada;
+
+    public TvLcd(int precio, String fabricante, int pulgada) {
+        super(precio, fabricante);
+        this.pulgada = pulgada;
+    }
+
+    @Override
+    public double getPrecioVenta() {
+        return getPrecio() * 0.8;
+    }
+
+    public int getPulgada() {
+        return pulgada;
+    }
+}
+
+
+La clase Libro:
+
+package org.aguzman.poointerface.dominio;
+
+import java.util.Date;
+
+public class Libro extends Producto implements ILibro {
+
+    private Date fechaPublicacion = new Date();
+    private String autor;
+    private String titulo;
+    private String editorial;
+
+    public Libro(int precio, String autor, String titulo, String editorial) {
+        super(precio);
+        this.autor = autor;
+        this.titulo = titulo;
+        this.editorial = editorial;
+    }
+
+    @Override
+    public Date getFechaPublicacion() {
+        return fechaPublicacion;
+    }
+
+    @Override
+    public String getAutor() {
+        return autor;
+    }
+
+    @Override
+    public String getTitulo() {
+        return titulo;
+    }
+
+    @Override
+    public String getEditorial() {
+        return editorial;
+    }
+
+    @Override
+    public double getPrecioVenta() {
+        return getPrecio() * 0.95;
+    }
+}
+
+
+La clase Comics:
+
+package org.aguzman.poointerface.dominio;
+
+public class Comics extends Libro {
+
+    private String personaje;
+
+    public Comics(int precio, String autor, String titulo, String editorial, String personaje) {
+        super(precio, autor, titulo, editorial);
+        this.personaje = personaje;
+    }
+
+    public String getPersonaje() {
+        return personaje;
+    }
+
+    @Override
+    public double getPrecioVenta() {
+        return this.getPrecio() * 0.85;
+    }
+}
+La clase Main:
+
+import org.aguzman.poointerface.dominio.*;
+
+public class ProyectoCatalogo {
+
+    public static void main(String[] args) {
+        IProducto[] productos = new Producto[6];
+
+        productos[0] = new IPhone(299000, "Apple", "3G", "Negro");
+        productos[1] = new IPhone(399000, "Apple", "4G", "Blanco");
+        productos[2] = new TvLcd(340000, "Sony", 40);
+        productos[3] = new Libro(18000, "Eric Gamma", "Elementos reusables POO", "Alguna...");
+        productos[4] = new Libro(14000, "Martin Fowler", "UML Gota a Gota", "Alguna...");
+        productos[5] = new Comics(5000, "Pepo", "Condorito", "Alguna...", "Condorito");
+
+        for (IProducto producto : productos) {
+
+            System.out.print("Tipo de: " + producto.getClass().getName());
+            System.out.print(" - ");
+            System.out.print("Precio: " + producto.getPrecio());
+            System.out.print(" - ");
+            System.out.print("Precio final: " + producto.getPrecioVenta());
+
+            // Para los Electronicos  ============
+            if (producto instanceof IElectronico) {
+                System.out.print(" - ");
+                System.out.print("Fabricante: " + ((IElectronico) producto).getFabricante());
+
+                // Para los IPhone ============
+                if (producto instanceof IPhone) {
+                    System.out.print(" - ");
+                    System.out.print("Modelo: " + ((IPhone) producto).getModelo());
+                    System.out.print(" - ");
+                    System.out.print("Color: " + ((IPhone) producto).getColor());
+                }
+
+                // Para los LCD  ============
+                if (producto instanceof TvLcd) {
+                    System.out.print(" - ");
+                    System.out.print("Pulgadas: " + ((TvLcd) producto).getPulgada());
+                }
+            }
+
+            // Para los Libros  ============
+            if (producto instanceof ILibro) {
+                System.out.print(" - ");
+                System.out.print("Titulo: " + ((ILibro) producto).getTitulo());
+                System.out.print(" - ");
+                System.out.print("Autor: " + ((ILibro) producto).getAutor());
+
+                // Para los Comics  ============
+                if (producto instanceof Comics) {
+                    System.out.print(" - ");
+                    System.out.print("Personaje: " + ((Comics) producto).getPersonaje());
+                }
+
+            }
+
+            System.out.println();
+        }
+    }
+}
+
+
+package org.aguzman.generics.bolsasupermercado.dominio;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class BolsaSupermercado<T> {
+
+    private List<T> productos;
+    private int indiceProductos;
+    private int max = 5;
+
+    public BolsaSupermercado() {
+        this.productos = new ArrayList();
+    }
+
+    public List<T> getProductos() {
+        return productos;
+    }
+
+    public void addProducto(T p) {
+        if(this.productos.size() <= max) {
+            this.productos.add(p);
+        } else {
+            throw new RuntimeException("no hay más espacio.");
+        }
+    }
+}
+
+
+Clase padre Producto:
+
+package org.aguzman.generics.bolsasupermercado.dominio;
+
+public class Producto {
+
+    protected String nombre;
+    protected double precio;
+
+    public Producto(String nombre, double precio) {
+        this.nombre = nombre;
+        this.precio = precio;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+}
+
+
+Clase Fruta:
+
+package org.aguzman.generics.bolsasupermercado.dominio;
+
+public class Fruta extends Producto {
+
+    private double peso;
+    private String color;
+
+    public Fruta(double peso, String color, String nombre, double precio) {
+        super(nombre, precio);
+        this.peso = peso;
+        this.color = color;
+    }
+
+    public double getPeso() {
+        return peso;
+    }
+
+    public String getColor() {
+        return color;
+    }
+}
+
+
+Clase Limpieza:
+
+package org.aguzman.generics.bolsasupermercado.dominio;
+
+public class Limpieza extends Producto {
+
+    private String componentes;
+    private double litros;
+
+    public Limpieza(String componentes, double litros, String nombre, double precio) {
+        super(nombre, precio);
+        this.componentes = componentes;
+        this.litros = litros;
+    }
+
+    public String getComponentes() {
+        return componentes;
+    }
+
+    public double getLitros() {
+        return litros;
+    }
+}
+
+
+Clase Lacteo:
+
+package org.aguzman.generics.bolsasupermercado.dominio;
+
+public class Lacteo extends Producto {
+
+    private int cantidad;
+    private int proteinas;
+
+    public Lacteo(int cantidad, int proteinas, String nombre, double precio) {
+        super(nombre, precio);
+        this.cantidad = cantidad;
+        this.proteinas = proteinas;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public int getProteinas() {
+        return proteinas;
+    }
+}
+
+
+Clase NoPerecible:
+
+package org.aguzman.generics.bolsasupermercado.dominio;
+
+public class NoPerecible extends Producto {
+
+    private int contenido;
+    private int calorias;
+
+    public NoPerecible(int contenido, int calorias, String nombre, double precio) {
+        super(nombre, precio);
+        this.contenido = contenido;
+        this.calorias = calorias;
+    }
+
+    public int getContenido() {
+        return contenido;
+    }
+
+    public int getCalorias() {
+        return calorias;
+    }
+}
+
+
+Clase main:
+
+package org.aguzman.generics.bolsasupermercado;
+
+import org.aguzman.generics.bolsasupermercado.dominio.BolsaSupermercado;
+import org.aguzman.generics.bolsasupermercado.dominio.*;
+
+public class TareaGenericsBolsaSupermercado {
+
+    public static void main(String[] args) {
+
+        BolsaSupermercado<Fruta> bolsaFrutas = new BolsaSupermercado<>();
+        BolsaSupermercado<Limpieza> bolsaLimpiezas = new BolsaSupermercado<>();
+        BolsaSupermercado<Lacteo> bolsaLacteos = new BolsaSupermercado<>();
+        BolsaSupermercado<NoPerecible> bolsaNoPerecibles = new BolsaSupermercado<>();
+
+        bolsaFrutas.addProducto(new Fruta(1200.00, "roja", "manzana fuji", 2500d));
+        bolsaFrutas.addProducto(new Fruta(800.00, "rojos", "duraznos", 1800d));
+        bolsaFrutas.addProducto(new Fruta(1000.00, "verdes", "ubas", 3500d));
+        bolsaFrutas.addProducto(new Fruta(1200.00, "amarillos", "limones", 1500d));
+        bolsaFrutas.addProducto(new Fruta(1200.00, "sandia", "sandia", 4000d));
+        
+        bolsaLimpiezas.addProducto(new Limpieza("antibacterial", 0.75, "Cif", 1690));
+        bolsaLimpiezas.addProducto(new Limpieza("lavaloza", 1.2, "Quix", 2290));
+        bolsaLimpiezas.addProducto(new Limpieza("cloro", 0.95, "Limpiador Crema", 1390));
+        bolsaLimpiezas.addProducto(new Limpieza("Gel con Lavandinca", 0.45, "Lysoform", 1380));
+        bolsaLimpiezas.addProducto(new Limpieza("Desinfectante Lavanda", 0.9, "Lysol", 1330));
+        
+        bolsaLacteos.addProducto(new Lacteo(1000, 32, "Leche Sabor Chocolate Semidescremada", 1150));
+        bolsaLacteos.addProducto(new Lacteo(200, 4, "Crema de Leche caja", 800));
+        bolsaLacteos.addProducto(new Lacteo(1000, 31, "Leche Blanca Descremada Caja", 720));
+        bolsaLacteos.addProducto(new Lacteo(1000, 37, "Yoghurt Batido Sabor Frutilla Bolsa", 1190));
+        bolsaLacteos.addProducto(new Lacteo(250, 2, "Mantequilla Con Sal Soprole", 1750));
+        
+        bolsaNoPerecibles.addProducto(new NoPerecible(170, 95, "Atún Lomitos en Agua Angelmo", 960));
+        bolsaNoPerecibles.addProducto(new NoPerecible(425, 560, "Jurel Natural Lata", 1120));
+        bolsaNoPerecibles.addProducto(new NoPerecible(380, 234, "Porotos Negros Listos Para Servir Caja", 1030));
+        bolsaNoPerecibles.addProducto(new NoPerecible(1000, 3340, "Arroz Grano Largo Ancho Grado 1", 1320));
+        bolsaNoPerecibles.addProducto(new NoPerecible(1000, 3536, "Porotos Hallado Bolsa", 1990));
+
+        System.out.println("-------------------------------- Frutas ---------------------------------");
+        for (Fruta fruta : bolsaFrutas.getProductos()) {
+            System.out.println("-------------------------------- " +  fruta.getNombre());
+            System.out.println("Precio: " + fruta.getPrecio());
+            System.out.println("Peso (gr): " + fruta.getPeso());
+            System.out.println("Color: " + fruta.getColor());
+        }
+
+        System.out.println("-------------------------------- Limpieza ---------------------------------");
+        for (Limpieza prod : bolsaLimpiezas.getProductos()) {
+            System.out.println("-------------------------------- " +  prod.getNombre());
+            System.out.println("Precio: " + prod.getPrecio());
+            System.out.println("Componentes: " + prod.getComponentes());
+            System.out.println("Litros: " + prod.getLitros());
+        }
+
+        System.out.println("-------------------------------- Lacteo ---------------------------------");
+        for (Lacteo prod : bolsaLacteos.getProductos()) {
+            System.out.println("-------------------------------- " +  prod.getNombre());
+            System.out.println("Precio: " + prod.getPrecio());
+            System.out.println("Cantidad (gr/cc): " + prod.getCantidad());
+            System.out.println("Proteinas (gr): " + prod.getProteinas());
+        }
+
+        System.out.println("-------------------------------- NoPerecible ---------------------------------");
+        for (NoPerecible prod : bolsaNoPerecibles.getProductos()) {
+            System.out.println("-------------------------------- " +  prod.getNombre());
+            System.out.println("Precio: " + prod.getPrecio());
+            System.out.println("Calorias (kCal): " + prod.getCalorias());
+            System.out.println("Contenido neto (gr): " + prod.getContenido());
+        }
+    }
+}
+
+
+package org.aguzman.colecciones.proyectovuelos.dominio;
+
+import java.util.Date;
+
+public class Vuelo {
+    
+    private String nombre;
+    private String origen;
+    private String destino;
+    private Date fechayHoraLlegada;
+    private int numeroPasajeros;
+
+    public Vuelo(String nombre, String origen, String destino, Date fechayHoraLlegada, int numeroPasajeros) {
+        this.nombre = nombre;
+        this.origen = origen;
+        this.destino = destino;
+        this.fechayHoraLlegada = fechayHoraLlegada;
+        this.numeroPasajeros = numeroPasajeros;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getOrigen() {
+        return origen;
+    }
+
+    public String getDestino() {
+        return destino;
+    }
+
+    public Date getFechayHoraLlegada() {
+        return fechayHoraLlegada;
+    }
+
+    public int getNumeroPasajeros() {
+        return numeroPasajeros;
+    }
+
+    @Override
+    public String toString() {
+        return "Vuelo: " + "nombre=" + nombre + ", origen=" + origen + ", destino=" + destino + ", fechayHoraLlegada=" + fechayHoraLlegada + ", numeroPasajeros=" + numeroPasajeros;
+    }
+}
+
+
+Clase main:
+
+package org.aguzman.colecciones.proyectovuelos;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import org.aguzman.colecciones.proyectovuelos.dominio.Vuelo;
+
+public class ProyectoVuelos {
+    
+    public static void main(String[] args) throws ParseException {
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm");
+        
+        List<Vuelo> llegadas = new ArrayList<>();
+        
+        llegadas.add(new Vuelo("AAL 933", "New York", "Santiago", df.parse("2021-08-29 05:39"), 62));
+        llegadas.add(new Vuelo("LAT 755", "Sao Paulo", "Santiago", df.parse("2021-08-31 04:45"), 47));
+        llegadas.add(new Vuelo("SKU 621", "Rio De Janeiro", "Santiago", df.parse("2021-08-30 16:00"), 52));
+        llegadas.add(new Vuelo("DAL 147", "Atlanta", "Santiago", df.parse("2021-08-29 13:22"), 59));
+        llegadas.add(new Vuelo("AVA 241", "Bogota", "Santiago", df.parse("2021-08-31 14:05"), 25));
+        llegadas.add(new Vuelo("AMX 10", "Mexico City", "Santiago", df.parse("2021-08-31 05:20"), 29));
+        llegadas.add(new Vuelo("IBE 6833", "Londres", "Santiago", df.parse("2021-08-30 08:45"), 55));
+        llegadas.add(new Vuelo("LAT 2479", "Frankfurt", "Santiago", df.parse("2021-08-29 07:41"), 51));
+        llegadas.add(new Vuelo("SKU 803", "Lima", "Santiago", df.parse("2021-08-30 10:35"), 48));
+        llegadas.add(new Vuelo("LAT 533", "Los Ángeles", "Santiago", df.parse("2021-08-29 09:14"), 59));
+        llegadas.add(new Vuelo("LAT 1447", "Guayaquil", "Santiago", df.parse("2021-08-31 08:33"), 31));
+        llegadas.add(new Vuelo("CMP 111", "Panama City", "Santiago", df.parse("2021-08-31 15:15"), 29));
+        llegadas.add(new Vuelo("LAT 705", "Madrid", "Santiago", df.parse("2021-08-30 08:14"), 47));
+        llegadas.add(new Vuelo("AAL 957", "Miami", "Santiago", df.parse("2021-08-29 22:53"), 60));
+        llegadas.add(new Vuelo("ARG 5091", "Buenos Aires", "Santiago", df.parse("2021-08-31 09:57"), 32));
+        llegadas.add(new Vuelo("LAT 1283", "Cancún", "Santiago", df.parse("2021-08-31 04:00"), 35));
+        llegadas.add(new Vuelo("LAT 579", "Barcelona", "Santiago", df.parse("2021-08-29 07:45"), 61));
+        llegadas.add(new Vuelo("AAL 945", "Dallas-Fort Worth", "Santiago", df.parse("2021-08-30 07:12"), 58));
+        llegadas.add(new Vuelo("LAT 501", "París", "Santiago", df.parse("2021-08-29 18:29"), 49));
+        llegadas.add(new Vuelo("LAT 405", "Montevideo", "Santiago", df.parse("2021-08-30 15:45"), 39));
+        
+        llegadas.sort((v1, v2) -> v2.getFechayHoraLlegada().compareTo(v1.getFechayHoraLlegada()));
+        
+        llegadas.forEach(System.out::println);
+        Vuelo ultimoVuelo = llegadas.get(0);
+        System.out.println("El último vuelo en llegar es " + ultimoVuelo.getNombre() + ": " + ultimoVuelo.getOrigen() + ", aterriza el " + ultimoVuelo.getFechayHoraLlegada());
+        
+        llegadas.sort((v1, v2) -> Integer.valueOf(v2.getNumeroPasajeros()).compareTo(v1.getNumeroPasajeros()));
+        Vuelo vueloNenorNumero = new LinkedList<>(llegadas).peekLast();
+        System.out.println("El vuelo con menor número de pasajeros es " + vueloNenorNumero.getNombre() + ": " + vueloNenorNumero.getOrigen()+ ", con " + vueloNenorNumero.getNumeroPasajeros() + " pasajeros.");  
+    }
+}
+
+package com.aguzman.tarealambda;
+
+@FunctionalInterface
+public interface FormatearFrase {
+    String limpiarYformatear(String frase);
+}
+Clase con el main y la expresión lambda:
+
+package com.aguzman.tarealambda;
+
+public class ExpresionesLambdaFormatear {
+
+    public static void main(String[] args) {
+
+        FormatearFrase format = frase -> {
+            return frase.replace(".", "")
+                    .replace(",", "").replace(" ", "")
+                    .toUpperCase();
+        };
+        
+        String resultado = format.limpiarYformatear("Pedro Pablo Pérez Pereira, pobre pintor portugués, pinta paisajes por poca plata, para pasear por París.");
+        System.out.println(resultado);
+    }
+}
+
+
+
+package com.aguzman.tarealambda;
+
+import java.util.Map;
+
+@FunctionalInterface
+public interface ContadorPalabras {
+    Map<String,Integer> contarPalabras(String frase);
+}
+Clase con el main y la expresión lambda:
+
+package com.aguzman.tarealambda;
+
+import java.util.Collections;
+
+public class ExpresionesLambda {
+
+    public static void main(String[] args) {
+
+        ContadorPalabras contador = frase -> {
+          
+            // Limpiamos la frase eliminando los puntos, comas y dejamos todo en minúsculas
+            // luego con split convertimos la frase en un arreglo para iterarlo.
+            String[] arreglo = frase.replace(".", "")
+                    .replace(",", "")
+                    .toLowerCase()
+                    .split(" ");
+
+            // con un for doble iteramos cada palabra y la comparamos con cada una del arreglo.
+            // así podemos calcular el máximo que se repite una palabra
+            // definimos dos variables importantes la palabra mas repetida y el max o cantidad de veces que se repite la palabra
+            int max = 0;
+            String palabra = null;
+            for (int i = 0; i < arreglo.length; i++) {
+                int cantidad = 0;
+                for (int j = 0; j < arreglo.length; j++) {
+                    if (arreglo[i].equalsIgnoreCase(arreglo[j])) {
+                        cantidad++;
+                    }
+                }
+
+                if(cantidad > max){
+                    max = cantidad;
+                    palabra = arreglo[i];
+                }
+            }
+            // finalmente devolvemos el resultado de la palabra mas repetida y el  numero de veces que se repite en un Map
+            // donde la llave es la palabra y max la cantidad.
+            return Collections.singletonMap(palabra, max);
+        };
+        
+        // ejecutamos y probamos nuestra expresión lambda con alguna frase con la palabra ni que se repite varias veces
+        // y finalmente el map que devuelve lo iteramos con un lambda forEach mostrando la llave o palabra y el valor la cantidad
+        contador.contarPalabras("Yo ni te conozco, ni te he visto, ni se tu nombre, ni te hablaré, ni me interesas.")
+                .forEach( (k, v) -> System.out.println("la palabra " + k + " se repite " + v + " veces."));
+    }
+}
+
+
+El enum Tipo
+
+public enum Tipo {
+    NUMERO, LETRA
+}
+La clase AlfanumericoTarea:
+
+import java.util.concurrent.TimeUnit;
+
+public class AlfanumericoTarea implements Runnable {
+
+    private Tipo tipo;
+
+    public AlfanumericoTarea(Tipo tipo) {
+        this.tipo = tipo;
+    }
+
+    @Override
+    public void run() {
+        //Segun el tipo hace una u otra cosa
+        try {
+            switch (tipo) {
+                case NUMERO -> {
+                    for (int i = 1; i < 10; i++) {
+                        System.out.println(i);
+                        TimeUnit.SECONDS.sleep(1);
+                    }
+                }
+                case LETRA -> {
+                    for (char c = 'A'; c <= 'Z'; c++) {
+
+                        System.out.println(c);
+                        TimeUnit.SECONDS.sleep(1);
+
+                    }
+                }
+            }
+        } catch (InterruptedException ex) {
+        }
+    }
+}
+La clase main:
+
+public class EjemploHilos {
+
+    public static void main(String[] args) {
+
+        AlfanumericoTarea h1 = new AlfanumericoTarea(Tipo.LETRA);
+        AlfanumericoTarea h2 = new AlfanumericoTarea(Tipo.NUMERO);
+
+        Thread t1 = new Thread(h1);
+        Thread t2 = new Thread(h2);
+
+        t1.start();
+        t2.start();
+    }
+}
+
+import java.util.Arrays;
+
+public class ProyectoJava8Stream {
+
+    public static void main(String[] args) {
+
+        int[] arreglo = new int[100];
+
+        for (int i = 0; i < arreglo.length; i++) {
+            arreglo[i] = i+1;
+        }
+
+        double total = Arrays.stream(arreglo)
+                .filter(e -> e % 10 != 0)
+                .mapToDouble(e -> (double) e / 2)
+                .reduce(0, (ac, e) -> ac + e);
+        
+        System.out.println(total); // 2250.0
+    }
+}
+
+import java.util.Arrays;
+import java.util.function.Function;
+
+public class ProyectoJava8Stream {
+
+    public static void main(String[] args) {
+        // la función lambda que obtiene el numero mayor del arreglo usando api stream en su implementación
+        Function<Integer[], Integer> max = arr -> Arrays.stream(arr).reduce(0, (ac, e) -> ac > e? ac: e);
+
+        int resultado = max.apply(new Integer[]{1, 78, -1700, 2500, 0, 2000, 54, 2});
+        System.out.println(resultado);
+    }
+}
+
+public class ProyectoJava8Stream {
+
+    public static void main(String[] args) {
+
+        String[][] lenguajes = {{"java", "groovy"}, {"php"}, {"c#", "python", "groovy"}, {"java", "javascript", "kotlin"}, {"javascript"}, {}};
+        Arrays.stream(lenguajes)
+                .flatMap(arr -> Arrays.stream(arr))
+                .distinct()
+                .forEach(e -> System.out.println(e));
+    }
+}
+Forma 2 con función lambda
+
+        String[][] lenguajes = {{"java", "groovy"}, {"php"}, {"c#", "python", "groovy"}, {"java", "javascript", "kotlin"}, {"javascript"}, {}};
+        
+        Function<String[][], List<String>> flatten = arr ->  Arrays.stream(arr).flatMap(a -> Arrays.stream(a))
+                .distinct()
+                .collect(Collectors.toList());
+        
+        flatten.apply(lenguajes).forEach(e -> System.out.println(e));
+
+
+
+
+
+    public class Producto {
+
+        private double precio;
+        private double cantidad;
+
+        public Producto(double precio, double cantidad) {
+            this.cantidad = cantidad;
+            this.precio = precio;
+        }
+
+        public double getPrecio() {
+            return precio;
+        }
+
+        public double getCantidad() {
+            return cantidad;
+        }
+    }
+Forma 1:
+
+        List<Producto> facturas = Arrays.asList(new Producto(9.99, 1), new Producto(19.99, 1.5), new Producto(4.99, 2));
+        double sum = facturas.stream()
+                .map(p -> p.getCantidad() * p.getPrecio())
+                .reduce(0d, Double::sum);
+        System.out.println(sum);
+Forma 2:
+
+        List<Producto> facturas = Arrays.asList(new Producto(9.99, 1), new Producto(19.99, 1.5), new Producto(4.99, 2));
+
+        double sum = facturas.stream()
+                .mapToDouble(x -> x.getCantidad() * x.getPrecio()) 
+                .sum();
+
+        System.out.println(sum); 
